@@ -24,10 +24,8 @@ if not args.RHOST:
     parser.print_help()
     sys.exit(1)
 
-if args.verbose:
-    logging.basicConfig(format="[%(asctime)s] %(message)s", datefmt="%H:%M:%S", level=logging.DEBUG)
-else:
-    logging.basicConfig(format="[%(asctime)s] %(message)s", datefmt="%H:%M:%S", level=logging.INFO)
+
+logging.basicConfig(format="[%(asctime)s] %(message)s", datefmt="%H:%M:%S", level=(logging.DEBUG if args.verbose else logging.INFO))
 
 user_agents = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
@@ -110,7 +108,7 @@ def main():
             for x in range(connections - len(attackers)):
                 logging.debug("Reviving dead attacker connections..")
                 try:
-                    attackers = [(init_attack())]
+                    attackers = [(init_attack(len(attackers) + 1))]
                 except socket.error:
                     break
             time.sleep(keep_alive_freq)
