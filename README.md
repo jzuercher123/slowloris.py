@@ -1,5 +1,5 @@
 # Slowloris.py - a low bandwidth DOS tool
-Proof of concept code in python3 of the [slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) attack invented by RSnake.
+Proof of concept code in python3 of the [slowloris](https://en.wikipedia.org/wiki/Slowloris_(computer_security)) attack invented by RSnake originally in perl.
 
 
 ## Note
